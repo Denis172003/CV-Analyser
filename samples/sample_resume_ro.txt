@@ -1,0 +1,76 @@
+MARIA POPESCU
+Inginer Software
+
+Email: maria.popescu@email.com
+Telefon: +40 721 123 456
+LinkedIn: linkedin.com/in/mariapopescu
+Locație: București, România
+
+PROFIL PROFESIONAL
+Inginer software cu experiență de 4+ ani în dezvoltarea aplicațiilor web și mobile, specializată în tehnologii frontend și backend. Experiență dovedită în lucrul cu echipe agile și livrarea de soluții software de calitate.
+
+COMPETENȚE TEHNICE
+• Limbaje de programare: JavaScript, Python, PHP, HTML5, CSS3
+• Framework-uri: React, Vue.js, Angular, Laravel, Django
+• Baze de date: MySQL, PostgreSQL, MongoDB
+• Platforme cloud: AWS, Microsoft Azure
+• Instrumente: Git, Docker, Jenkins, Jira, Confluence
+• Metodologii: Agile, Scrum, Test-Driven Development
+• Altele: RESTful APIs, GraphQL, Responsive Design
+
+EXPERIENȚA PROFESIONALĂ
+
+Inginer Software Senior | TechRomania SRL | 2021 - Prezent
+• Dezvoltarea și mentenanța aplicațiilor web folosind React și Node.js
+• Implementarea funcționalităților noi care au crescut satisfacția utilizatorilor cu 25%
+• Coordonarea unei echipe de 5 dezvoltatori junior
+• Optimizarea performanței aplicațiilor, reducând timpul de încărcare cu 30%
+• Colaborarea cu echipele de design și product management
+
+Dezvoltator Web | DigitalSoft SA | 2020 - 2021
+• Crearea interfețelor responsive folosind HTML5, CSS3 și JavaScript
+• Dezvoltarea API-urilor RESTful în PHP și Laravel
+• Implementarea sistemelor de autentificare și autorizare
+• Participarea la procesul de code review și mentoring
+• Lucrul în echipe agile cu sprint-uri de 2 săptămâni
+
+Dezvoltator Junior | WebStudio Iași | 2019 - 2020
+• Dezvoltarea site-urilor web pentru clienți din diverse domenii
+• Integrarea cu sisteme de plată și API-uri externe
+• Testarea și debugging-ul aplicațiilor web
+• Colaborarea cu designerii pentru implementarea mockup-urilor
+
+EDUCAȚIE
+
+Licență în Informatică
+Universitatea Tehnică "Gheorghe Asachi" Iași | 2015 - 2019
+• Media: 9.2/10
+• Disciplinele relevante: Structuri de Date, Algoritmi, Baze de Date, Ingineria Software
+• Proiect de licență: Aplicație web pentru managementul proiectelor
+
+PROIECTE
+
+Platformă E-learning (2022)
+• Dezvoltarea unei platforme de învățare online folosind React și Django
+• Implementarea sistemului de video streaming și quiz-uri interactive
+• Gestionarea unei baze de utilizatori de 1000+ persoane
+
+Aplicație de Gestionare Financiară (2021)
+• Crearea unei aplicații mobile pentru tracking-ul cheltuielilor
+• Folosirea React Native pentru frontend și Node.js pentru backend
+• Integrarea cu API-uri bancare pentru sincronizarea tranzacțiilor
+
+CERTIFICĂRI
+• AWS Certified Developer - Associate (2022)
+• Google Analytics Certified (2021)
+• Scrum Master Certified (2020)
+
+REALIZĂRI
+• Angajatul lunii - TechRomania SRL (Iunie 2022)
+• Locul 2 la Hackathon-ul Național de Tehnologie (2021)
+• Contribuții la proiecte open-source cu 500+ stars pe GitHub
+
+LIMBI STRĂINE
+• Română - Nativ
+• Engleză - Avansat (C1)
+• Franceză - Intermediar (B1)

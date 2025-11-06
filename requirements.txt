@@ -1,0 +1,26 @@
+# Core web framework
+streamlit>=1.28.0
+
+# AI integration
+openai>=1.0.0
+
+# Document processing
+pdfplumber>=0.9.0
+python-docx>=0.8.11
+
+# Video and audio generation
+edge-tts>=6.1.0
+moviepy>=1.0.3
+
+# HTTP requests for API calls
+requests>=2.31.0
+
+# Database integration
+supabase>=2.0.0
+
+# Google AI integration
+google-generativeai>=0.3.0
+
+# Additional utilities
+python-dotenv>=1.0.0
+Pillow>=10.0.0

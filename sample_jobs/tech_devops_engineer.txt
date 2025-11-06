@@ -1,0 +1,111 @@
+DevOps Engineer - Cloud Infrastructure
+CloudScale Systems
+Austin, TX | Remote
+
+About CloudScale Systems:
+We're a cloud infrastructure company providing scalable solutions for enterprise clients. Our platform handles millions of requests daily and maintains 99.99% uptime across global deployments.
+
+Position Summary:
+We're seeking an experienced DevOps Engineer to join our Infrastructure team. You'll be responsible for designing, implementing, and maintaining our cloud infrastructure while ensuring high availability, security, and performance.
+
+Core Responsibilities:
+- Design and manage cloud infrastructure on AWS, Azure, and Google Cloud
+- Implement and maintain CI/CD pipelines using Jenkins, GitLab CI, or GitHub Actions
+- Automate infrastructure provisioning using Terraform and CloudFormation
+- Monitor system performance and implement alerting solutions
+- Ensure security best practices across all environments
+- Collaborate with development teams on deployment strategies
+- Troubleshoot production issues and implement preventive measures
+- Maintain documentation for infrastructure and deployment processes
+
+Required Experience:
+- Bachelor's degree in Computer Science, Engineering, or related field
+- 3-5 years of DevOps or Site Reliability Engineering experience
+- Strong experience with AWS services (EC2, S3, RDS, Lambda, EKS)
+- Proficiency with containerization technologies (Docker, Kubernetes)
+- Experience with Infrastructure as Code (Terraform, CloudFormation)
+- Knowledge of CI/CD tools and practices
+- Scripting skills in Python, Bash, or PowerShell
+- Experience with monitoring tools (Prometheus, Grafana, CloudWatch)
+- Understanding of networking concepts and security principles
+- Experience with version control systems (Git)
+
+Preferred Skills:
+- Multi-cloud experience (AWS, Azure, GCP)
+- Kubernetes certification (CKA or CKAD)
+- Experience with service mesh technologies (Istio, Linkerd)
+- Knowledge of database administration (PostgreSQL, MySQL, MongoDB)
+- Experience with log aggregation tools (ELK Stack, Splunk)
+- Understanding of microservices architecture
+- Experience with configuration management (Ansible, Chef, Puppet)
+- Knowledge of security scanning and compliance tools
+- Experience with disaster recovery and backup strategies
+- Agile/DevOps methodology experience
+
+Technical Expertise:
+- Cloud Platforms: AWS (primary), Azure, Google Cloud Platform
+- Containers: Docker, Kubernetes, OpenShift, EKS, AKS
+- Infrastructure: Terraform, CloudFormation, Pulumi
+- CI/CD: Jenkins, GitLab CI, GitHub Actions, Azure DevOps
+- Monitoring: Prometheus, Grafana, CloudWatch, DataDog, New Relic
+- Scripting: Python, Bash, PowerShell, Go
+- Databases: PostgreSQL, MySQL, MongoDB, Redis
+- Security: IAM, VPC, Security Groups, SSL/TLS, Vault
+
+Key Projects:
+- Migrate legacy applications to cloud-native architecture
+- Implement zero-downtime deployment strategies
+- Design multi-region disaster recovery solutions
+- Automate security compliance and vulnerability scanning
+- Optimize cloud costs through resource management
+- Build self-healing infrastructure with auto-scaling capabilities
+
+Compensation & Benefits:
+- Salary range: $130,000 - $170,000 based on experience
+- Annual performance bonus up to 15% of base salary
+- Comprehensive health, dental, and vision coverage
+- 401(k) with 6% company matching
+- Flexible PTO and work-from-home policy
+- Professional development budget ($3,000/year)
+- Cloud certification reimbursement program
+- Latest hardware and development tools
+
+Work Environment:
+- Fully remote team with optional co-working space access
+- Flexible hours with core collaboration time (10 AM - 2 PM CT)
+- On-call rotation with fair compensation and time off
+- Regular team building events and annual company retreat
+- Emphasis on work-life balance and mental health support
+
+Career Development:
+- Clear advancement paths to Senior DevOps Engineer or Team Lead
+- Opportunities to lead major infrastructure projects
+- Conference speaking and open-source contribution support
+- Cross-training opportunities in security and architecture
+- Mentorship programs for junior team members
+
+Company Values:
+- Reliability: We build systems that our clients can depend on
+- Innovation: We embrace new technologies and methodologies
+- Collaboration: We work together to solve complex problems
+- Transparency: We communicate openly and honestly
+- Growth: We invest in our people and their professional development
+
+Application Process:
+Submit your resume along with a brief cover letter highlighting your cloud infrastructure experience. Please include:
+- Links to any infrastructure code repositories (GitHub, GitLab)
+- Descriptions of major infrastructure projects you've led
+- Cloud certifications and relevant training
+- Preferred cloud platforms and tools
+
+Interview Stages:
+1. Initial screening call with HR (30 minutes)
+2. Technical phone interview with DevOps team lead (60 minutes)
+3. Hands-on technical assessment (infrastructure design exercise)
+4. Final interview with engineering manager and team members
+5. Reference checks and offer discussion
+
+We're looking for someone who is passionate about infrastructure automation, enjoys solving complex technical challenges, and wants to work with cutting-edge cloud technologies in a collaborative environment.
+
+Equal Employment Opportunity:
+CloudScale Systems provides equal employment opportunities to all employees and applicants without regard to race, color, religion, sex, national origin, age, disability, or genetics.

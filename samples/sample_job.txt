@@ -1,0 +1,78 @@
+Senior Full-Stack Developer
+TechInnovate Solutions
+San Francisco, CA (Remote Friendly)
+
+About TechInnovate Solutions:
+We are a fast-growing fintech startup revolutionizing digital payments and financial services. Our mission is to make financial technology accessible and secure for everyone. We value innovation, collaboration, and continuous learning.
+
+Job Description:
+We are seeking a Senior Full-Stack Developer to join our engineering team and help build the next generation of financial technology solutions. You will work on both frontend and backend systems, collaborate with cross-functional teams, and contribute to architectural decisions that impact millions of users.
+
+Key Responsibilities:
+• Design and develop scalable web applications using modern JavaScript frameworks
+• Build and maintain RESTful APIs and microservices architecture
+• Collaborate with product managers, designers, and other engineers to deliver high-quality features
+• Implement security best practices for financial data handling
+• Optimize application performance and ensure high availability
+• Mentor junior developers and participate in code reviews
+• Contribute to technical documentation and system architecture decisions
+• Participate in agile development processes and sprint planning
+
+Required Technical Skills:
+• 5+ years of experience in full-stack web development
+• Proficiency in JavaScript/TypeScript and modern frameworks (React, Vue.js, or Angular)
+• Strong backend development experience with Node.js, Python, or Java
+• Experience with relational databases (PostgreSQL, MySQL) and NoSQL databases (MongoDB, Redis)
+• Knowledge of cloud platforms (AWS, GCP, or Azure) and containerization (Docker, Kubernetes)
+• Understanding of microservices architecture and API design principles
+• Experience with version control systems (Git) and CI/CD pipelines
+• Knowledge of testing frameworks and test-driven development
+• Familiarity with security best practices and data protection regulations
+
+Preferred Qualifications:
+• Experience in fintech or financial services industry
+• Knowledge of blockchain technology and cryptocurrency
+• Experience with machine learning and data analytics
+• Familiarity with DevOps practices and infrastructure as code
+• Experience with mobile development (React Native, Flutter)
+• Knowledge of payment processing systems and PCI compliance
+• Experience with real-time systems and WebSocket technologies
+• Contributions to open-source projects
+
+Soft Skills:
+• Excellent problem-solving and analytical thinking abilities
+• Strong communication skills and ability to work in cross-functional teams
+• Leadership experience and mentoring capabilities
+• Adaptability and willingness to learn new technologies
+• Attention to detail and commitment to code quality
+• Ability to work in a fast-paced startup environment
+• Strong project management and time management skills
+
+What We Offer:
+• Competitive salary range: $140,000 - $180,000 based on experience
+• Equity package with high growth potential
+• Comprehensive health, dental, and vision insurance
+• Flexible work arrangements and remote work options
+• Professional development budget for conferences and courses
+• Modern tech stack and latest development tools
+• Collaborative and inclusive work environment
+• Opportunity to work on cutting-edge financial technology
+
+Education Requirements:
+• Bachelor's degree in Computer Science, Engineering, or related field
+• Master's degree preferred but not required
+• Equivalent work experience will be considered in lieu of formal education
+
+Experience Level:
+• 5-8 years of professional software development experience
+• Previous experience in senior or lead developer roles preferred
+• Experience working in agile/scrum environments
+• Track record of delivering complex software projects
+
+Company Culture:
+We foster a culture of innovation, transparency, and continuous improvement. Our team values diversity, inclusion, and work-life balance. We encourage experimentation, learning from failures, and celebrating successes together.
+
+Application Process:
+Please submit your resume, cover letter, and links to your portfolio or GitHub profile. We will review applications on a rolling basis and conduct technical interviews including coding challenges and system design discussions.
+
+Keywords for ATS: Full-stack developer, JavaScript, TypeScript, React, Node.js, Python, AWS, Docker, Kubernetes, PostgreSQL, MongoDB, API development, microservices, fintech, agile, CI/CD, Git, testing, security, leadership, mentoring

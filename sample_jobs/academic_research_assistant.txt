@@ -1,0 +1,127 @@
+Research Assistant - Machine Learning & AI
+University of California, Berkeley
+Berkeley, CA | On-campus
+
+About the Position:
+The Department of Electrical Engineering and Computer Sciences at UC Berkeley is seeking a dedicated Research Assistant to support cutting-edge research in machine learning and artificial intelligence. This position offers the opportunity to work with world-renowned faculty on projects that advance the state of the art in AI.
+
+Research Focus Areas:
+Our lab focuses on developing novel machine learning algorithms with applications in computer vision, natural language processing, and robotics. Current projects include deep reinforcement learning, neural architecture search, and interpretable AI systems.
+
+Key Responsibilities:
+- Conduct literature reviews and analyze current research in machine learning and AI
+- Implement and test machine learning algorithms using Python and deep learning frameworks
+- Design and execute experiments to validate research hypotheses
+- Collect, clean, and analyze large datasets for training and evaluation
+- Collaborate with PhD students and postdocs on research projects
+- Prepare research papers, conference presentations, and technical reports
+- Maintain research code repositories and documentation
+- Assist with grant proposal writing and research funding applications
+- Present research findings at lab meetings and academic conferences
+- Support undergraduate student researchers and lab operations
+
+Required Qualifications:
+- Bachelor's degree in Computer Science, Electrical Engineering, Mathematics, or related field
+- Strong programming skills in Python with experience in machine learning libraries
+- Solid foundation in mathematics including linear algebra, calculus, and statistics
+- Understanding of machine learning concepts and algorithms
+- Experience with deep learning frameworks (TensorFlow, PyTorch, or Keras)
+- Familiarity with data analysis and visualization tools
+- Excellent written and verbal communication skills
+- Ability to work independently and as part of a research team
+- Strong analytical and problem-solving abilities
+- Commitment to academic research and scientific rigor
+
+Preferred Qualifications:
+- Master's degree in relevant field or equivalent research experience
+- Publications in machine learning or AI conferences/journals
+- Experience with computer vision or natural language processing
+- Knowledge of reinforcement learning algorithms and applications
+- Proficiency with cloud computing platforms (AWS, Google Cloud, Azure)
+- Experience with high-performance computing and GPU programming
+- Understanding of software engineering best practices and version control
+- Experience with research methodologies and experimental design
+- Knowledge of statistical analysis and hypothesis testing
+- Familiarity with academic writing and publication processes
+
+Technical Skills:
+- Programming: Python, R, MATLAB, C++, Java
+- ML Frameworks: TensorFlow, PyTorch, Keras, scikit-learn
+- Data Tools: Pandas, NumPy, Matplotlib, Seaborn, Jupyter
+- Cloud Platforms: AWS, Google Cloud Platform, Azure
+- Version Control: Git, GitHub, GitLab
+- Databases: SQL, MongoDB, PostgreSQL
+- Visualization: Plotly, D3.js, Tableau
+
+Research Projects:
+- Developing interpretable deep learning models for medical diagnosis
+- Creating robust reinforcement learning algorithms for autonomous systems
+- Investigating neural architecture search for efficient model design
+- Building multimodal AI systems combining vision and language
+- Exploring federated learning for privacy-preserving machine learning
+- Advancing few-shot learning techniques for data-scarce domains
+
+Academic Environment:
+- Work directly with faculty members and senior researchers
+- Collaborate with PhD students from diverse academic backgrounds
+- Access to state-of-the-art computing resources and research facilities
+- Opportunity to attend seminars, workshops, and academic conferences
+- Participation in interdisciplinary research collaborations
+- Mentorship and career development support
+
+Compensation & Benefits:
+- Annual salary: $45,000 - $55,000 based on experience and qualifications
+- Comprehensive health, dental, and vision insurance
+- Retirement plan with university contribution
+- Professional development funding for conferences and training
+- Access to university facilities including libraries and recreation centers
+- Tuition remission for continuing education courses
+- Flexible work schedule with core research hours
+
+Career Development:
+- Opportunity to co-author research publications
+- Presentation opportunities at top-tier conferences
+- Networking with leading researchers in the field
+- Potential pathway to PhD program admission
+- Industry connections through university partnerships
+- Skills development in cutting-edge AI technologies
+
+Research Impact:
+Our lab's work has been published in top venues including NeurIPS, ICML, ICLR, and Nature Machine Intelligence. Research outcomes have been adopted by major technology companies and have influenced AI policy discussions at national and international levels.
+
+Lab Culture:
+We foster an inclusive, collaborative research environment that values diverse perspectives and innovative thinking. Our team includes researchers from various backgrounds working together to advance AI for societal benefit.
+
+Application Requirements:
+Please submit the following materials:
+- Detailed CV including research experience and publications
+- Cover letter explaining research interests and career goals
+- Transcripts from all post-secondary institutions
+- Two letters of recommendation from academic or professional references
+- Portfolio of relevant projects, code samples, or research work
+- Writing sample (research paper, technical report, or thesis chapter)
+
+Research Statement:
+Include a 1-2 page research statement describing:
+- Your specific interests within machine learning and AI
+- Relevant research or project experience
+- How this position aligns with your career goals
+- Ideas for potential research contributions
+
+Interview Process:
+1. Initial application review and screening
+2. Technical interview covering ML concepts and programming skills
+3. Research presentation on previous work or relevant project
+4. Meeting with faculty members and current lab members
+5. Final interview discussing research fit and career objectives
+
+Timeline:
+- Application deadline: Rolling basis with priority given to early applications
+- Interview process: 2-3 weeks after application submission
+- Start date: Flexible, with preference for beginning of academic semester
+- Position duration: 1-2 years with possibility of extension
+
+We're seeking a motivated researcher who is passionate about advancing AI technology, enjoys collaborative problem-solving, and wants to contribute to impactful research that addresses real-world challenges.
+
+Equal Opportunity Employer:
+UC Berkeley is an Equal Opportunity/Affirmative Action Employer committed to excellence through diversity. We welcome applications from all qualified candidates regardless of race, gender, age, religion, sexual orientation, disability, or veteran status.

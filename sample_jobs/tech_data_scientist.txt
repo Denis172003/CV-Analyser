@@ -1,0 +1,90 @@
+Data Scientist - Machine Learning
+DataTech Analytics
+New York, NY | Hybrid
+
+About DataTech Analytics:
+We're a leading data analytics company serving Fortune 500 clients across healthcare, finance, and retail industries. Our mission is to transform business decision-making through advanced analytics and machine learning solutions.
+
+Position Overview:
+We're looking for a passionate Data Scientist to join our Machine Learning team. You'll work on cutting-edge projects involving predictive modeling, natural language processing, and computer vision to solve complex business problems.
+
+Key Responsibilities:
+- Develop and deploy machine learning models for predictive analytics
+- Analyze large datasets to extract actionable business insights
+- Design and implement data pipelines for model training and inference
+- Collaborate with engineering teams to productionize ML models
+- Create data visualizations and reports for stakeholder communication
+- Conduct A/B tests and statistical analysis to measure model performance
+- Research and implement state-of-the-art ML algorithms and techniques
+- Mentor junior data scientists and contribute to best practices
+
+Required Skills:
+- Master's degree in Data Science, Statistics, Computer Science, or related field
+- 4+ years of experience in data science and machine learning
+- Strong programming skills in Python and R
+- Proficiency with ML libraries: scikit-learn, TensorFlow, PyTorch
+- Experience with SQL and database management systems
+- Knowledge of statistical analysis and hypothesis testing
+- Experience with data visualization tools (Matplotlib, Seaborn, Plotly)
+- Understanding of feature engineering and model selection techniques
+- Experience with cloud platforms (AWS, GCP, or Azure)
+- Strong analytical and problem-solving abilities
+
+Preferred Qualifications:
+- PhD in quantitative field (Statistics, Mathematics, Physics)
+- Experience with deep learning and neural networks
+- Knowledge of natural language processing (NLP) techniques
+- Experience with computer vision and image processing
+- Proficiency with big data tools (Spark, Hadoop, Kafka)
+- Experience with MLOps and model deployment pipelines
+- Knowledge of time series analysis and forecasting
+- Experience with reinforcement learning
+- Publications in peer-reviewed journals or conferences
+- Experience in healthcare, finance, or retail analytics
+
+Technical Stack:
+- Languages: Python, R, SQL, Scala
+- ML Frameworks: TensorFlow, PyTorch, scikit-learn, XGBoost
+- Data Tools: Pandas, NumPy, Jupyter, Apache Spark
+- Visualization: Matplotlib, Seaborn, Plotly, Tableau
+- Cloud: AWS (SageMaker, EC2, S3), Google Cloud Platform
+- Databases: PostgreSQL, MongoDB, Snowflake, Redshift
+- Version Control: Git, DVC (Data Version Control)
+
+Project Examples:
+- Customer churn prediction models achieving 85%+ accuracy
+- Natural language processing for sentiment analysis of customer reviews
+- Computer vision systems for automated quality control in manufacturing
+- Recommendation engines for e-commerce personalization
+- Time series forecasting for supply chain optimization
+
+What We Offer:
+- Competitive salary: $140,000 - $180,000 plus performance bonuses
+- Comprehensive benefits package including health, dental, vision
+- Flexible hybrid work model (3 days in office, 2 remote)
+- Professional development opportunities and conference attendance
+- Access to latest ML tools and high-performance computing resources
+- Collaborative environment with world-class data scientists
+- Opportunity to work on diverse, high-impact projects
+
+Team Culture:
+Our data science team values curiosity, rigor, and collaboration. We encourage experimentation, knowledge sharing, and staying current with the latest research. Regular tech talks, paper discussions, and hackathons foster continuous learning.
+
+Growth Opportunities:
+- Lead cross-functional projects with business impact
+- Mentor junior team members and interns
+- Present findings to C-level executives and clients
+- Contribute to open-source projects and research publications
+- Potential career paths: Senior Data Scientist, ML Engineering, or Management
+
+Application Requirements:
+Please submit your resume, cover letter, and portfolio showcasing your data science projects. Include GitHub links, Kaggle profiles, or any published work. We're particularly interested in projects demonstrating end-to-end ML pipeline development.
+
+Interview Process:
+1. Initial phone screening (30 minutes)
+2. Technical assessment (take-home project)
+3. On-site interviews including technical deep-dive and case study presentation
+4. Final interview with team lead and stakeholders
+
+Equal Opportunity Statement:
+DataTech Analytics is an equal opportunity employer committed to diversity and inclusion. We welcome applications from all qualified individuals regardless of background, identity, or experience level.

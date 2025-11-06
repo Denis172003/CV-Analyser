@@ -1,0 +1,71 @@
+JOHN SMITH
+Software Engineer
+
+Email: john.smith@email.com
+Phone: +1 (555) 123-4567
+LinkedIn: linkedin.com/in/johnsmith
+Location: San Francisco, CA
+
+PROFESSIONAL SUMMARY
+Experienced software engineer with 5+ years of expertise in full-stack development, machine learning, and team leadership. Proven track record of delivering scalable web applications and leading cross-functional teams to achieve project goals.
+
+TECHNICAL SKILLS
+• Programming Languages: Python, JavaScript, Java, C++, SQL
+• Web Technologies: React, Node.js, Django, Flask, HTML5, CSS3
+• Databases: PostgreSQL, MongoDB, Redis, MySQL
+• Cloud Platforms: AWS, Google Cloud Platform, Azure
+• Machine Learning: TensorFlow, PyTorch, Scikit-learn, Pandas, NumPy
+• DevOps: Docker, Kubernetes, Jenkins, Git, CI/CD pipelines
+• Other: RESTful APIs, GraphQL, Microservices, Agile/Scrum
+
+PROFESSIONAL EXPERIENCE
+
+Senior Software Engineer | TechCorp Inc. | 2021 - Present
+• Led development of microservices architecture serving 1M+ daily active users
+• Implemented machine learning recommendation system increasing user engagement by 35%
+• Mentored team of 8 junior developers and conducted code reviews
+• Reduced application response time by 40% through database optimization
+• Collaborated with product managers to define technical requirements
+
+Software Engineer | StartupXYZ | 2019 - 2021
+• Developed full-stack web applications using React and Django
+• Built RESTful APIs handling 10,000+ requests per minute
+• Implemented automated testing suite achieving 95% code coverage
+• Participated in agile development process with 2-week sprints
+• Contributed to open-source projects and technical documentation
+
+Junior Developer | WebSolutions Ltd. | 2018 - 2019
+• Created responsive web interfaces using HTML5, CSS3, and JavaScript
+• Integrated third-party APIs and payment processing systems
+• Performed bug fixes and feature enhancements on legacy systems
+• Collaborated with designers to implement pixel-perfect UI components
+
+EDUCATION
+
+Bachelor of Science in Computer Science
+University of California, Berkeley | 2014 - 2018
+• GPA: 3.8/4.0
+• Relevant Coursework: Data Structures, Algorithms, Database Systems, Machine Learning
+• Senior Project: Developed AI-powered chatbot using natural language processing
+
+PROJECTS
+
+E-Commerce Platform (2022)
+• Built scalable e-commerce platform using React, Node.js, and PostgreSQL
+• Implemented secure payment processing and inventory management
+• Deployed on AWS with auto-scaling capabilities
+
+Personal Finance Tracker (2021)
+• Created mobile-responsive web app for expense tracking and budgeting
+• Used Python/Flask backend with React frontend
+• Integrated with banking APIs for automatic transaction import
+
+CERTIFICATIONS
+• AWS Certified Solutions Architect - Associate (2022)
+• Google Cloud Professional Data Engineer (2021)
+• Certified Scrum Master (CSM) (2020)
+
+ACHIEVEMENTS
+• Employee of the Month - TechCorp Inc. (March 2022)
+• Hackathon Winner - Bay Area Tech Challenge (2021)
+• Published research paper on machine learning optimization (2020)

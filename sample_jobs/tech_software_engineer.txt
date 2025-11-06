@@ -1,0 +1,69 @@
+Software Engineer - Full Stack
+TechCorp Solutions
+San Francisco, CA | Remote Available
+
+About TechCorp Solutions:
+We're a fast-growing fintech startup building the next generation of payment processing solutions. Our team of 50+ engineers works on cutting-edge technology that processes millions of transactions daily.
+
+Job Description:
+We're seeking a talented Full Stack Software Engineer to join our core platform team. You'll work on both frontend and backend systems, contributing to our microservices architecture and user-facing applications.
+
+Key Responsibilities:
+- Design and develop scalable web applications using React and Node.js
+- Build and maintain RESTful APIs and microservices
+- Collaborate with product managers and designers on feature development
+- Write clean, testable code with comprehensive unit and integration tests
+- Participate in code reviews and maintain high code quality standards
+- Deploy and monitor applications in AWS cloud environment
+- Troubleshoot production issues and implement performance optimizations
+- Mentor junior developers and contribute to technical documentation
+
+Required Qualifications:
+- Bachelor's degree in Computer Science or related field
+- 3-5 years of professional software development experience
+- Strong proficiency in JavaScript, HTML, and CSS
+- Experience with React.js and modern frontend frameworks
+- Solid understanding of Node.js and Express.js
+- Proficiency with relational databases (PostgreSQL preferred)
+- Experience with Git version control and collaborative development
+- Knowledge of RESTful API design principles
+- Understanding of software testing methodologies
+- Excellent problem-solving and debugging skills
+
+Preferred Qualifications:
+- Experience with TypeScript
+- Knowledge of Docker and containerization
+- AWS cloud services experience (EC2, S3, RDS, Lambda)
+- Experience with Redis or other caching solutions
+- Understanding of CI/CD pipelines and DevOps practices
+- Experience with GraphQL
+- Knowledge of payment processing or fintech domain
+- Contributions to open-source projects
+- Experience with Agile/Scrum methodologies
+
+Technical Skills:
+- Frontend: React, JavaScript, TypeScript, HTML5, CSS3, Webpack
+- Backend: Node.js, Express.js, Python, RESTful APIs
+- Databases: PostgreSQL, MongoDB, Redis
+- Cloud: AWS (EC2, S3, RDS, Lambda, CloudWatch)
+- Tools: Git, Docker, Jenkins, JIRA, Slack
+- Testing: Jest, Cypress, Mocha, Chai
+
+What We Offer:
+- Competitive salary: $120,000 - $160,000 based on experience
+- Equity package with high growth potential
+- Comprehensive health, dental, and vision insurance
+- Flexible work arrangements and remote work options
+- Professional development budget ($2,000/year)
+- Modern tech stack and latest development tools
+- Collaborative, learning-focused team environment
+- Opportunity to work on high-impact financial technology
+
+Company Culture:
+We value innovation, collaboration, and continuous learning. Our team believes in work-life balance, transparent communication, and making a meaningful impact in the fintech space. We encourage experimentation and provide opportunities for career growth.
+
+Application Process:
+Please submit your resume along with a cover letter explaining your interest in fintech and any relevant project experience. Include links to your GitHub profile and any deployed applications you've worked on.
+
+Equal Opportunity Employer:
+TechCorp Solutions is committed to creating a diverse and inclusive workplace. We welcome applications from all qualified candidates regardless of race, gender, age, religion, sexual orientation, or disability status.
