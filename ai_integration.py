@@ -869,3 +869,216 @@ def _generate_interview_focus_areas(job_analysis: Dict, resume_analysis: Dict) -
         focus_areas.append(f"Prepare examples showing {company_culture[0]} mindset")
     
     return focus_areas
+
+
+def generate_interview_questions(resume_analysis: Dict, job_analysis: Dict = None) -> Dict:
+    """
+    Generate potential interview questions based on CV and job requirements.
+    
+    Args:
+        resume_analysis: Analysis results from CV processing
+        job_analysis: Optional job analysis results
+        
+    Returns:
+        Dictionary with categorized interview questions by difficulty
+    """
+    try:
+        # Extract key information
+        top_skills = resume_analysis.get('top_skills', [])
+        strengths = resume_analysis.get('strengths', [])
+        weak_points = resume_analysis.get('weak_points', [])
+        
+        # Job-specific information if available
+        job_title = job_analysis.get('job_title', 'this position') if job_analysis else 'this position'
+        required_skills = job_analysis.get('required_skills', []) if job_analysis else []
+        key_responsibilities = job_analysis.get('key_responsibilities', []) if job_analysis else []
+        
+        # Create system prompt for generating interview questions
+        system_prompt = f"""You are an expert HR interviewer. Generate realistic interview questions based on the candidate's CV and job requirements. 
+
+Respond ONLY with valid JSON in this format:
+{{
+    "easy_questions": [
+        {{
+            "question": "Question text",
+            "category": "General/Technical/Behavioral",
+            "focus": "What this question tests",
+            "tip": "Brief tip for answering"
+        }}
+    ],
+    "medium_questions": [
+        {{
+            "question": "Question text",
+            "category": "General/Technical/Behavioral", 
+            "focus": "What this question tests",
+            "tip": "Brief tip for answering"
+        }}
+    ],
+    "hard_questions": [
+        {{
+            "question": "Question text",
+            "category": "General/Technical/Behavioral",
+            "focus": "What this question tests", 
+            "tip": "Brief tip for answering"
+        }}
+    ]
+}}
+
+Generate 4-5 questions per difficulty level. Make questions specific to the candidate's background and job requirements."""
+
+        # Create user message with CV and job context
+        user_message = f"""
+        CANDIDATE PROFILE:
+        - Top Skills: {', '.join(top_skills[:5])}
+        - Key Strengths: {', '.join([s.get('text', '') for s in strengths[:3]])}
+        - Areas for Improvement: {', '.join([w.get('text', '') for w in weak_points[:2]])}
+        
+        JOB CONTEXT:
+        - Position: {job_title}
+        - Required Skills: {', '.join(required_skills[:5])}
+        - Key Responsibilities: {', '.join([r.get('responsibility', '') for r in key_responsibilities[:3]])}
+        
+        Generate interview questions that:
+        1. EASY: Basic questions about background, motivation, and general skills
+        2. MEDIUM: Specific questions about experience, technical skills, and job-related scenarios
+        3. HARD: Complex behavioral questions, problem-solving, and challenging technical/strategic questions
+        
+        Make questions realistic and relevant to both the candidate's profile and job requirements.
+        """
+
+        # Call OpenAI API
+        response = client.chat.completions.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_message}
+            ],
+            temperature=0.7,
+            max_tokens=2000
+        )
+        
+        response_text = response.choices[0].message.content.strip()
+        
+        # Parse JSON response
+        try:
+            questions_data = json.loads(response_text)
+        except json.JSONDecodeError:
+            # Fallback: extract JSON from text using regex
+            logger.warning("Direct JSON parsing failed, trying regex extraction")
+            json_match = re.search(r'\{.*\}', response_text, re.DOTALL)
+            if json_match:
+                questions_data = json.loads(json_match.group())
+            else:
+                raise Exception("Failed to extract JSON from response")
+        
+        # Validate and structure the response
+        structured_questions = {
+            'easy_questions': questions_data.get('easy_questions', []),
+            'medium_questions': questions_data.get('medium_questions', []),
+            'hard_questions': questions_data.get('hard_questions', [])
+        }
+        
+        logger.info("Successfully generated interview questions")
+        return structured_questions
+        
+    except Exception as e:
+        logger.error(f"Failed to generate interview questions: {str(e)}")
+        
+        # Fallback questions based on available data
+        return _generate_fallback_interview_questions(resume_analysis, job_analysis)
+
+
+def _generate_fallback_interview_questions(resume_analysis: Dict, job_analysis: Dict = None) -> Dict:
+    """
+    Generate fallback interview questions when AI generation fails.
+    
+    Args:
+        resume_analysis: Analysis results from CV processing
+        job_analysis: Optional job analysis results
+        
+    Returns:
+        Dictionary with basic interview questions
+    """
+    top_skills = resume_analysis.get('top_skills', [])
+    job_title = job_analysis.get('job_title', 'this position') if job_analysis else 'this position'
+    
+    return {
+        'easy_questions': [
+            {
+                'question': 'Tell me about yourself and your background.',
+                'category': 'General',
+                'focus': 'Self-presentation and communication skills',
+                'tip': 'Keep it concise, focus on relevant experience and skills'
+            },
+            {
+                'question': f'Why are you interested in {job_title}?',
+                'category': 'General', 
+                'focus': 'Motivation and job fit',
+                'tip': 'Show genuine interest and connect your skills to the role'
+            },
+            {
+                'question': 'What are your greatest strengths?',
+                'category': 'Behavioral',
+                'focus': 'Self-awareness and relevant skills',
+                'tip': 'Choose strengths relevant to the job and provide examples'
+            },
+            {
+                'question': 'Where do you see yourself in 5 years?',
+                'category': 'General',
+                'focus': 'Career goals and ambition',
+                'tip': 'Align your goals with the company and role growth path'
+            }
+        ],
+        'medium_questions': [
+            {
+                'question': f'How would you apply your {top_skills[0] if top_skills else "technical skills"} in this role?',
+                'category': 'Technical',
+                'focus': 'Practical application of skills',
+                'tip': 'Give specific examples and relate to job requirements'
+            },
+            {
+                'question': 'Describe a challenging project you worked on and how you overcame obstacles.',
+                'category': 'Behavioral',
+                'focus': 'Problem-solving and resilience',
+                'tip': 'Use the STAR method: Situation, Task, Action, Result'
+            },
+            {
+                'question': 'How do you handle working under pressure and tight deadlines?',
+                'category': 'Behavioral',
+                'focus': 'Stress management and time management',
+                'tip': 'Provide concrete examples and mention specific strategies'
+            },
+            {
+                'question': 'What interests you most about our company?',
+                'category': 'General',
+                'focus': 'Company research and genuine interest',
+                'tip': 'Research the company beforehand and mention specific aspects'
+            }
+        ],
+        'hard_questions': [
+            {
+                'question': 'Describe a time when you had to learn a new technology or skill quickly. How did you approach it?',
+                'category': 'Behavioral',
+                'focus': 'Learning agility and adaptability',
+                'tip': 'Emphasize your learning process and how you applied the new skill'
+            },
+            {
+                'question': 'How would you handle a situation where you disagree with your manager\'s approach?',
+                'category': 'Behavioral',
+                'focus': 'Conflict resolution and professional communication',
+                'tip': 'Show respect for hierarchy while demonstrating your ability to contribute ideas'
+            },
+            {
+                'question': 'What would you do if you realized you made a significant mistake in your work?',
+                'category': 'Behavioral',
+                'focus': 'Accountability and problem-solving',
+                'tip': 'Emphasize taking responsibility, learning from mistakes, and preventing future issues'
+            },
+            {
+                'question': f'How would you prioritize multiple competing deadlines in {job_title}?',
+                'category': 'Technical',
+                'focus': 'Project management and decision-making',
+                'tip': 'Discuss your prioritization framework and communication strategies'
+            }
+        ]
+    }
