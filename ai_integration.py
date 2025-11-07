@@ -47,7 +47,9 @@ def call_gpt_analysis(resume_text: str, job_text: str = "") -> Dict:
     # Detect language for appropriate response
     language = detect_language(resume_text)
     
-    # Create system prompt for structured JSON analysis
+    # Create system prompt for structured JSON analysis with consistent language
+    language_instruction = "Romanian" if language == "ro" else "English"
+    
     system_prompt = f"""You are an expert resume analyzer. Analyze the provided resume and respond ONLY with valid JSON in the following format:
 
 {{
@@ -74,13 +76,18 @@ def call_gpt_analysis(resume_text: str, job_text: str = "") -> Dict:
     "one_sentence_pitch": "Professional pitch starting with 'Hi, I'm [Name]' using the person's actual name from the resume"
 }}
 
+CRITICAL LANGUAGE REQUIREMENT:
+- ALL text content MUST be written in {language_instruction} ONLY
+- Do NOT mix languages - use {language_instruction} consistently throughout
+- If the resume is in {language_instruction}, respond entirely in {language_instruction}
+
 IMPORTANT for one_sentence_pitch:
 - MUST start with "Hi, I'm [ActualName]" using the person's real name from the resume
 - If no name is found, use "Hi, I'm a professional"
 - Should be a complete, confident introduction suitable for video
 - Example: "Hi, I'm John Smith, a software engineer with 5 years of experience in Python and machine learning"
 
-Respond in {"Romanian" if language == "ro" else "English"}. Provide 3-5 items for each category. Be specific and actionable."""
+Respond in {language_instruction}. Provide 3-5 items for each category. Be specific and actionable."""
 
     # Create user message with resume and optional job description
     user_message = f"Resume text:\n{resume_text}"
@@ -284,7 +291,7 @@ def _clean_text_for_video(text: str) -> str:
 
 def detect_language(text: str) -> str:
     """
-    Detect if text is primarily English or Romanian.
+    Detect if text is primarily English or Romanian with improved accuracy.
     
     Args:
         text: Text to analyze
@@ -292,21 +299,46 @@ def detect_language(text: str) -> str:
     Returns:
         'en' for English, 'ro' for Romanian
     """
-    # Romanian-specific words and patterns
+    if not text or len(text.strip()) < 10:
+        return 'en'  # Default to English for very short texts
+    
+    # Romanian-specific words and patterns (expanded list)
     romanian_indicators = [
-        'și', 'cu', 'în', 'de', 'la', 'pe', 'pentru', 'din', 'sau', 'dar',
-        'experiență', 'lucru', 'proiect', 'echipă', 'dezvoltare', 'management',
-        'companie', 'responsabilități', 'abilități', 'educație', 'universitate'
+        # Common words
+        'și', 'cu', 'în', 'de', 'la', 'pe', 'pentru', 'din', 'sau', 'dar', 'care', 'este', 'sunt', 'avea', 'face',
+        # Professional terms
+        'experiență', 'lucru', 'proiect', 'echipă', 'dezvoltare', 'management', 'companie', 'responsabilități', 
+        'abilități', 'educație', 'universitate', 'facultate', 'liceu', 'școală', 'cursuri', 'certificat',
+        # Romanian-specific characters and patterns
+        'ă', 'â', 'î', 'ș', 'ț', 'română', 'român', 'bucurești', 'cluj', 'timișoara', 'iași',
+        # Months in Romanian
+        'ianuarie', 'februarie', 'martie', 'aprilie', 'mai', 'iunie', 'iulie', 'august', 
+        'septembrie', 'octombrie', 'noiembrie', 'decembrie'
+    ]
+    
+    # English-specific indicators
+    english_indicators = [
+        'the', 'and', 'with', 'for', 'from', 'that', 'this', 'have', 'been', 'will', 'would', 'could',
+        'experience', 'work', 'project', 'team', 'development', 'management', 'company', 'responsibilities',
+        'skills', 'education', 'university', 'college', 'school', 'courses', 'certificate'
     ]
     
     # Convert to lowercase for matching
     text_lower = text.lower()
     
-    # Count Romanian indicators
+    # Count indicators
     romanian_count = sum(1 for word in romanian_indicators if word in text_lower)
+    english_count = sum(1 for word in english_indicators if word in text_lower)
     
-    # Simple heuristic: if we find 3+ Romanian indicators, assume Romanian
-    return 'ro' if romanian_count >= 3 else 'en'
+    # Enhanced heuristic with ratio consideration
+    total_indicators = romanian_count + english_count
+    if total_indicators == 0:
+        return 'en'  # Default to English if no indicators found
+    
+    romanian_ratio = romanian_count / total_indicators
+    
+    # If Romanian indicators are more than 40% of total, consider it Romanian
+    return 'ro' if romanian_ratio > 0.4 else 'en'
 
 
 def _call_gpt_with_retry(system_prompt: str, user_message: str, max_attempts: int = 2) -> str:
@@ -524,7 +556,9 @@ def analyze_job_description(job_text: str) -> Dict:
         # Detect language for appropriate response
         language = detect_language(job_text)
         
-        # Create system prompt for job analysis
+        # Create system prompt for job analysis with consistent language
+        language_instruction = "Romanian" if language == "ro" else "English"
+        
         system_prompt = f"""You are an expert job market analyst. Analyze the provided job description and respond ONLY with valid JSON in the following format:
 
 {{
@@ -548,7 +582,12 @@ def analyze_job_description(job_text: str) -> Dict:
     "employment_type": "full-time|part-time|contract|internship"
 }}
 
-Respond in {"Romanian" if language == "ro" else "English"}. Be specific and extract actual requirements from the text."""
+CRITICAL LANGUAGE REQUIREMENT:
+- ALL text content MUST be written in {language_instruction} ONLY
+- Do NOT mix languages - use {language_instruction} consistently throughout
+- Extract information and present it in {language_instruction}
+
+Respond in {language_instruction}. Be specific and extract actual requirements from the text."""
 
         user_message = f"Job Description:\n{job_text}"
         
@@ -893,6 +932,14 @@ def generate_interview_questions(resume_analysis: Dict, job_analysis: Dict = Non
         required_skills = job_analysis.get('required_skills', []) if job_analysis else []
         key_responsibilities = job_analysis.get('key_responsibilities', []) if job_analysis else []
         
+        # Detect language from resume analysis for consistent responses
+        resume_text = resume_analysis.get('original_text', '')
+        if not resume_text:
+            # Try to get language from top skills or other text fields
+            resume_text = ' '.join(resume_analysis.get('top_skills', []))
+        language = detect_language(resume_text)
+        language_instruction = "Romanian" if language == "ro" else "English"
+        
         # Create system prompt for generating interview questions
         system_prompt = f"""You are an expert HR interviewer. Generate realistic interview questions based on the candidate's CV and job requirements. 
 
@@ -923,6 +970,11 @@ Respond ONLY with valid JSON in this format:
         }}
     ]
 }}
+
+CRITICAL LANGUAGE REQUIREMENT:
+- ALL text content MUST be written in {language_instruction} ONLY
+- Do NOT mix languages - use {language_instruction} consistently throughout
+- Questions, categories, focus areas, and tips must all be in {language_instruction}
 
 Generate 4-5 questions per difficulty level. Make questions specific to the candidate's background and job requirements."""
 
@@ -1081,4 +1133,341 @@ def _generate_fallback_interview_questions(resume_analysis: Dict, job_analysis: 
                 'tip': 'Discuss your prioritization framework and communication strategies'
             }
         ]
+    }
+
+
+def conduct_mock_interview(resume_analysis: Dict, job_analysis: Dict = None, interview_type: str = "general") -> Dict:
+    """
+    Generate 3 interview questions for a mock interview session.
+    
+    Args:
+        resume_analysis: Analysis results from CV processing
+        job_analysis: Optional job analysis results
+        interview_type: Type of interview (general, technical, behavioral)
+        
+    Returns:
+        Dictionary with 3 interview questions for the mock session
+    """
+    try:
+        # Extract key information
+        top_skills = resume_analysis.get('top_skills', [])
+        strengths = resume_analysis.get('strengths', [])
+        
+        # Job-specific information if available
+        job_title = job_analysis.get('job_title', 'this position') if job_analysis else 'this position'
+        required_skills = job_analysis.get('required_skills', []) if job_analysis else []
+        company_name = job_analysis.get('company_name', 'our company') if job_analysis else 'our company'
+        
+        # Detect language from resume analysis for consistent responses
+        resume_text = resume_analysis.get('original_text', '')
+        if not resume_text:
+            # Try to get language from top skills or other text fields
+            resume_text = ' '.join(resume_analysis.get('top_skills', []))
+        language = detect_language(resume_text)
+        language_instruction = "Romanian" if language == "ro" else "English"
+        
+        # Create system prompt for mock interview
+        system_prompt = f"""You are an experienced HR interviewer conducting a mock interview. Generate exactly 3 realistic interview questions based on the candidate's profile and job requirements.
+
+Respond ONLY with valid JSON in this format:
+{{
+    "questions": [
+        {{
+            "id": 1,
+            "question": "Question text",
+            "category": "General/Technical/Behavioral",
+            "difficulty": "Easy/Medium/Hard",
+            "expected_elements": ["element1", "element2", "element3"],
+            "evaluation_criteria": "What to look for in a good answer"
+        }}
+    ],
+    "interview_context": {{
+        "position": "Job title",
+        "company": "Company name",
+        "focus_areas": ["area1", "area2", "area3"]
+    }}
+}}
+
+CRITICAL LANGUAGE REQUIREMENT:
+- ALL text content MUST be written in {language_instruction} ONLY
+- Do NOT mix languages - use {language_instruction} consistently throughout
+- Questions, categories, expected elements, and evaluation criteria must all be in {language_instruction}
+
+Generate questions that:
+1. Are realistic and commonly asked in interviews
+2. Are relevant to the candidate's background and job requirements
+3. Progress from easier to more challenging
+4. Test different aspects (motivation, skills, problem-solving)"""
+
+        # Create user message with context
+        user_message = f"""
+        CANDIDATE PROFILE:
+        - Top Skills: {', '.join(top_skills[:5])}
+        - Key Strengths: {', '.join([s.get('text', '') for s in strengths[:3]])}
+        
+        JOB CONTEXT:
+        - Position: {job_title}
+        - Company: {company_name}
+        - Required Skills: {', '.join(required_skills[:5])}
+        - Interview Type: {interview_type}
+        
+        Generate 3 interview questions:
+        1. First question: Easier, about background/motivation
+        2. Second question: Medium difficulty, about skills/experience
+        3. Third question: More challenging, behavioral/problem-solving
+        
+        Make questions specific to this role and candidate profile.
+        """
+
+        # Call OpenAI API
+        response = client.chat.completions.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_message}
+            ],
+            temperature=0.7,
+            max_tokens=1500
+        )
+        
+        response_text = response.choices[0].message.content.strip()
+        
+        # Parse JSON response
+        try:
+            interview_data = json.loads(response_text)
+        except json.JSONDecodeError:
+            # Fallback: extract JSON from text using regex
+            logger.warning("Direct JSON parsing failed, trying regex extraction")
+            json_match = re.search(r'\{.*\}', response_text, re.DOTALL)
+            if json_match:
+                interview_data = json.loads(json_match.group())
+            else:
+                raise Exception("Failed to extract JSON from response")
+        
+        logger.info("Successfully generated mock interview questions")
+        return interview_data
+        
+    except Exception as e:
+        logger.error(f"Failed to generate mock interview: {str(e)}")
+        
+        # Fallback questions
+        return _generate_fallback_mock_interview(resume_analysis, job_analysis)
+
+
+def evaluate_interview_responses(questions: List[Dict], responses: List[str], resume_analysis: Dict, job_analysis: Dict = None) -> Dict:
+    """
+    Evaluate user responses to mock interview questions and provide feedback.
+    
+    Args:
+        questions: List of interview questions asked
+        responses: List of user responses
+        resume_analysis: Analysis results from CV processing
+        job_analysis: Optional job analysis results
+        
+    Returns:
+        Dictionary with evaluation results and feedback
+    """
+    try:
+        # Detect language from resume analysis for consistent responses
+        resume_text = resume_analysis.get('original_text', '')
+        if not resume_text:
+            # Try to get language from top skills or other text fields
+            resume_text = ' '.join(resume_analysis.get('top_skills', []))
+        language = detect_language(resume_text)
+        language_instruction = "Romanian" if language == "ro" else "English"
+        
+        # Create system prompt for evaluation
+        system_prompt = f"""You are an expert HR interviewer evaluating interview responses. Provide constructive feedback and scoring.
+
+Respond ONLY with valid JSON in this format:
+{{
+    "overall_score": 85,
+    "individual_scores": [
+        {{
+            "question_id": 1,
+            "score": 80,
+            "feedback": "Detailed feedback on this response",
+            "strengths": ["strength1", "strength2"],
+            "improvements": ["improvement1", "improvement2"]
+        }}
+    ],
+    "overall_feedback": {{
+        "strengths": ["overall strength1", "overall strength2"],
+        "areas_for_improvement": ["improvement1", "improvement2"],
+        "recommendations": ["recommendation1", "recommendation2"]
+    }},
+    "interview_performance": {{
+        "communication": 85,
+        "relevance": 80,
+        "confidence": 75,
+        "specificity": 70
+    }}
+}}
+
+CRITICAL LANGUAGE REQUIREMENT:
+- ALL text content MUST be written in {language_instruction} ONLY
+- Do NOT mix languages - use {language_instruction} consistently throughout
+- Feedback, strengths, improvements, and recommendations must all be in {language_instruction}
+
+Scoring criteria (0-100):
+- 90-100: Excellent, comprehensive answers with specific examples
+- 80-89: Good answers with some examples and clear communication
+- 70-79: Adequate answers but lacking detail or examples
+- 60-69: Basic answers that address the question but need improvement
+- Below 60: Insufficient or unclear answers
+
+Be constructive and specific in feedback."""
+
+        # Prepare evaluation context
+        evaluation_context = f"""
+        INTERVIEW EVALUATION:
+        
+        Questions and Responses:
+        """
+        
+        for i, (question, response) in enumerate(zip(questions, responses), 1):
+            evaluation_context += f"""
+        Question {i}: {question.get('question', '')}
+        Category: {question.get('category', 'General')}
+        Expected Elements: {', '.join(question.get('expected_elements', []))}
+        
+        Candidate Response: {response}
+        
+        ---
+        """
+        
+        evaluation_context += f"""
+        
+        CANDIDATE CONTEXT:
+        - Top Skills: {', '.join(resume_analysis.get('top_skills', [])[:5])}
+        - Key Strengths: {', '.join([s.get('text', '') for s in resume_analysis.get('strengths', [])[:3]])}
+        """
+        
+        if job_analysis:
+            evaluation_context += f"""
+        - Target Position: {job_analysis.get('job_title', 'Unknown')}
+        - Required Skills: {', '.join(job_analysis.get('required_skills', [])[:5])}
+        """
+
+        # Call OpenAI API for evaluation
+        response = client.chat.completions.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": evaluation_context}
+            ],
+            temperature=0.3,  # Lower temperature for more consistent evaluation
+            max_tokens=2000
+        )
+        
+        response_text = response.choices[0].message.content.strip()
+        
+        # Parse JSON response
+        try:
+            evaluation_data = json.loads(response_text)
+        except json.JSONDecodeError:
+            # Fallback: extract JSON from text using regex
+            logger.warning("Direct JSON parsing failed, trying regex extraction")
+            json_match = re.search(r'\{.*\}', response_text, re.DOTALL)
+            if json_match:
+                evaluation_data = json.loads(json_match.group())
+            else:
+                raise Exception("Failed to extract JSON from response")
+        
+        logger.info("Successfully evaluated interview responses")
+        return evaluation_data
+        
+    except Exception as e:
+        logger.error(f"Failed to evaluate interview responses: {str(e)}")
+        
+        # Fallback evaluation
+        return _generate_fallback_evaluation(questions, responses)
+
+
+def _generate_fallback_mock_interview(resume_analysis: Dict, job_analysis: Dict = None) -> Dict:
+    """Generate fallback mock interview questions when AI generation fails."""
+    top_skills = resume_analysis.get('top_skills', [])
+    job_title = job_analysis.get('job_title', 'this position') if job_analysis else 'this position'
+    company_name = job_analysis.get('company_name', 'our company') if job_analysis else 'our company'
+    
+    return {
+        "questions": [
+            {
+                "id": 1,
+                "question": f"Tell me about yourself and why you're interested in {job_title}.",
+                "category": "General",
+                "difficulty": "Easy",
+                "expected_elements": ["Background summary", "Relevant experience", "Motivation for role"],
+                "evaluation_criteria": "Clear communication, relevant background, genuine interest"
+            },
+            {
+                "id": 2,
+                "question": f"How would you apply your {top_skills[0] if top_skills else 'technical skills'} in this role?",
+                "category": "Technical",
+                "difficulty": "Medium",
+                "expected_elements": ["Specific examples", "Technical knowledge", "Practical application"],
+                "evaluation_criteria": "Technical understanding, specific examples, job relevance"
+            },
+            {
+                "id": 3,
+                "question": "Describe a challenging situation you faced and how you overcame it.",
+                "category": "Behavioral",
+                "difficulty": "Hard",
+                "expected_elements": ["STAR method", "Problem-solving approach", "Learning outcome"],
+                "evaluation_criteria": "Structured response, problem-solving skills, self-reflection"
+            }
+        ],
+        "interview_context": {
+            "position": job_title,
+            "company": company_name,
+            "focus_areas": ["Communication", "Technical skills", "Problem-solving"]
+        }
+    }
+
+
+def _generate_fallback_evaluation(questions: List[Dict], responses: List[str]) -> Dict:
+    """Generate fallback evaluation when AI evaluation fails."""
+    # Simple scoring based on response length and basic criteria
+    individual_scores = []
+    total_score = 0
+    
+    for i, (question, response) in enumerate(zip(questions, responses)):
+        # Basic scoring based on response length and content
+        response_length = len(response.split())
+        
+        if response_length < 10:
+            score = 40
+        elif response_length < 30:
+            score = 60
+        elif response_length < 60:
+            score = 75
+        else:
+            score = 85
+        
+        individual_scores.append({
+            "question_id": i + 1,
+            "score": score,
+            "feedback": f"Your response was {'brief' if response_length < 30 else 'detailed'}. Consider providing more specific examples.",
+            "strengths": ["Clear communication"],
+            "improvements": ["Add more specific examples", "Provide more detail"]
+        })
+        
+        total_score += score
+    
+    overall_score = total_score // len(questions)
+    
+    return {
+        "overall_score": overall_score,
+        "individual_scores": individual_scores,
+        "overall_feedback": {
+            "strengths": ["Completed the interview", "Provided responses to all questions"],
+            "areas_for_improvement": ["Provide more specific examples", "Use the STAR method for behavioral questions"],
+            "recommendations": ["Practice with more detailed responses", "Prepare specific examples from your experience"]
+        },
+        "interview_performance": {
+            "communication": overall_score,
+            "relevance": overall_score - 5,
+            "confidence": overall_score - 10,
+            "specificity": overall_score - 15
+        }
     }

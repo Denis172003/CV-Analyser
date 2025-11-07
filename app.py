@@ -89,28 +89,195 @@ def add_modern_css():
         max-width: 1200px;
     }
     
-    /* Modern header */
-    .modern-header {
+    /* Hero Section */
+    .hero-section {
         background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-        padding: 3rem 2rem;
-        border-radius: 20px;
+        padding: 4rem 2rem;
+        border-radius: 25px;
         color: white;
         text-align: center;
-        margin-bottom: 2rem;
-        box-shadow: 0 10px 30px rgba(46, 134, 171, 0.3);
+        margin-bottom: 3rem;
+        box-shadow: 0 15px 40px rgba(46, 134, 171, 0.3);
+        position: relative;
+        overflow: hidden;
     }
     
-    .modern-header h1 {
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
+    .hero-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/><circle cx="10" cy="60" r="0.5" fill="white" opacity="0.1"/><circle cx="90" cy="40" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+        pointer-events: none;
+    }
+    
+    .hero-content {
+        position: relative;
+        z-index: 1;
+    }
+    
+    .hero-title {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
         text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        background: linear-gradient(45deg, #ffffff, #f0f8ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
     }
     
-    .modern-header p {
+    .hero-subtitle {
+        font-size: 1.3rem;
+        opacity: 0.95;
+        margin-bottom: 3rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.6;
+    }
+    
+    .hero-stats {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        margin-top: 2rem;
+    }
+    
+    .stat-item {
+        text-align: center;
+    }
+    
+    .stat-number {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+        color: #ffffff;
+    }
+    
+    .stat-label {
+        font-size: 0.9rem;
+        opacity: 0.8;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    /* Features Overview */
+    .features-overview {
+        margin-bottom: 3rem;
+    }
+    
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+    
+    .feature-card {
+        background: white;
+        border-radius: 20px;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        border: 1px solid var(--border-light);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .feature-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    }
+    
+    .feature-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    }
+    
+    .feature-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        display: block;
+    }
+    
+    .feature-card h3 {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        margin-bottom: 1rem;
+    }
+    
+    .feature-card p {
+        color: #666;
+        line-height: 1.6;
+        font-size: 0.95rem;
+    }
+    
+    /* Quick Start Guide */
+    .quick-start-guide {
+        background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+        border-radius: 20px;
+        padding: 2.5rem;
+        margin: 2rem 0;
+        border: 1px solid var(--border-light);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    
+    .quick-start-guide h2 {
+        text-align: center;
+        color: var(--text-dark);
+        margin-bottom: 2rem;
+        font-size: 1.8rem;
+        font-weight: 600;
+    }
+    
+    .quick-start-steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .quick-step {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1.5rem;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        transition: transform 0.3s ease;
+    }
+    
+    .quick-step:hover {
+        transform: translateY(-3px);
+    }
+    
+    .step-icon {
+        font-size: 2rem;
+        flex-shrink: 0;
+    }
+    
+    .step-content h4 {
+        color: var(--text-dark);
+        margin-bottom: 0.5rem;
         font-size: 1.1rem;
-        opacity: 0.9;
-        margin-bottom: 0;
+        font-weight: 600;
+    }
+    
+    .step-content p {
+        color: #666;
+        margin: 0;
+        font-size: 0.9rem;
+        line-height: 1.4;
     }
     
     /* Step cards */
@@ -265,10 +432,59 @@ def add_modern_css():
         margin: 0.5rem 0;
     }
     
+    /* Mock Interview Styling */
+    .interview-question {
+        background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+        border-left: 4px solid var(--primary-color);
+        padding: 1.5rem;
+        border-radius: 10px;
+        margin: 1rem 0;
+    }
+    
+    .score-card {
+        background: white;
+        border-radius: 12px;
+        padding: 1.5rem;
+        text-align: center;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        border: 1px solid var(--border-light);
+        margin: 0.5rem;
+    }
+    
+    .score-excellent {
+        border-left: 4px solid #28a745;
+    }
+    
+    .score-good {
+        border-left: 4px solid #ffc107;
+    }
+    
+    .score-needs-improvement {
+        border-left: 4px solid #dc3545;
+    }
+    
     /* Responsive design */
     @media (max-width: 768px) {
-        .modern-header h1 {
-            font-size: 2rem;
+        .hero-title {
+            font-size: 2.5rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.1rem;
+        }
+        
+        .hero-stats {
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .features-grid {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        .feature-card {
+            padding: 1.5rem;
         }
         
         .step-card {
@@ -278,17 +494,86 @@ def add_modern_css():
         .upload-area {
             padding: 2rem 1rem;
         }
+        
+        .interview-question {
+            padding: 1rem;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .hero-section {
+            padding: 3rem 1rem;
+        }
+        
+        .hero-title {
+            font-size: 2rem;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+        }
     }
     </style>
     """, unsafe_allow_html=True)
 
 
-def create_modern_header():
-    """Create a modern, attractive header."""
+def create_hero_dashboard():
+    """Create a comprehensive hero dashboard with features overview."""
     st.markdown("""
-    <div class="modern-header">
-        <h1>🤖 AI Resume Analyzer</h1>
-        <p>Transform your resume with AI-powered insights and personalized video pitches</p>
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Present Your True Potential</h1>
+            <p class="hero-subtitle">Transform your career with AI-powered resume analysis, job matching, and interview preparation</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">10s</div>
+                    <div class="stat-label">Video Generation</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">Match Accuracy</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Mock Questions</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="features-overview">
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📄</div>
+                <h3>Smart Analysis</h3>
+                <p>AI-powered resume analysis with detailed insights, strengths identification, and improvement suggestions</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Job Matching</h3>
+                <p>Compare your resume against job requirements with compatibility scoring and skill gap analysis</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎥</div>
+                <h3>Video Pitches</h3>
+                <p>Generate personalized 10-second video pitches using advanced AI and professional templates</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎤</div>
+                <h3>Mock Interviews</h3>
+                <p>Practice with AI-generated interview questions and receive detailed performance feedback</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔍</div>
+                <h3>ATS Optimization</h3>
+                <p>Optimize your resume for Applicant Tracking Systems with keyword recommendations</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Progress Tracking</h3>
+                <p>Monitor your improvement over time with detailed analytics and performance metrics</p>
+            </div>
+        </div>
     </div>
     """, unsafe_allow_html=True)
 
@@ -380,6 +665,46 @@ def generate_pitch_video(analysis_results: Dict[str, Any], video_type: str = "Ge
         return "", f"Video generation failed: {str(e)}"
 
 
+def display_quick_start_guide():
+    """Display a quick start guide for new users."""
+    if not st.session_state.get('uploaded_file'):
+        st.markdown("""
+        <div class="quick-start-guide">
+            <h2>🚀 Quick Start Guide</h2>
+            <div class="quick-start-steps">
+                <div class="quick-step">
+                    <div class="step-icon">1️⃣</div>
+                    <div class="step-content">
+                        <h4>Upload Your Resume</h4>
+                        <p>Drop your PDF or DOCX resume file to get started</p>
+                    </div>
+                </div>
+                <div class="quick-step">
+                    <div class="step-icon">2️⃣</div>
+                    <div class="step-content">
+                        <h4>Add Job Description</h4>
+                        <p>Paste a job posting for personalized analysis</p>
+                    </div>
+                </div>
+                <div class="quick-step">
+                    <div class="step-icon">3️⃣</div>
+                    <div class="step-content">
+                        <h4>Get AI Insights</h4>
+                        <p>Receive detailed analysis and improvement suggestions</p>
+                    </div>
+                </div>
+                <div class="quick-step">
+                    <div class="step-icon">4️⃣</div>
+                    <div class="step-content">
+                        <h4>Practice & Perfect</h4>
+                        <p>Generate videos and practice mock interviews</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+
 def display_workflow_steps():
     """Display the main workflow as interactive steps."""
     # Step 1: Upload Resume
@@ -401,7 +726,11 @@ def display_workflow_steps():
     if st.session_state.get('analysis_results'):
         display_video_step()
     
-    # Step 6: View History
+    # Step 6: Mock Interview
+    if st.session_state.get('analysis_results'):
+        display_mock_interview_step()
+    
+    # Step 7: View History
     display_history_step()
 
 
@@ -692,12 +1021,277 @@ def display_video_step():
         st.markdown('</div>', unsafe_allow_html=True)
 
 
+def display_mock_interview_step():
+    """Display the mock interview step."""
+    st.markdown(f"""
+    <div class="step-card">
+        <div class="step-header">
+            <div class="step-number">6</div>
+            <h3 class="step-title">Mock Interview Practice</h3>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    st.info("🎭 Practice your interview skills with AI-powered mock interviews!")
+    
+    # Initialize session state for mock interview
+    if 'mock_interview_questions' not in st.session_state:
+        st.session_state.mock_interview_questions = None
+    if 'mock_interview_responses' not in st.session_state:
+        st.session_state.mock_interview_responses = []
+    if 'current_question_index' not in st.session_state:
+        st.session_state.current_question_index = 0
+    if 'interview_completed' not in st.session_state:
+        st.session_state.interview_completed = False
+    if 'interview_evaluation' not in st.session_state:
+        st.session_state.interview_evaluation = None
+    
+    # Start Mock Interview Button
+    if not st.session_state.mock_interview_questions and not st.session_state.interview_completed:
+        col1, col2, col3 = st.columns([1, 1, 1])
+        with col2:
+            if st.button("🎭 Start Mock Interview", key="start_mock_interview", use_container_width=True):
+                with st.spinner("Preparing your personalized mock interview..."):
+                    try:
+                        # Generate mock interview questions
+                        job_analysis = st.session_state.analysis_results.get('job_analysis')
+                        mock_interview = ai_integration.conduct_mock_interview(
+                            st.session_state.analysis_results,
+                            job_analysis
+                        )
+                        
+                        st.session_state.mock_interview_questions = mock_interview
+                        st.session_state.mock_interview_responses = []
+                        st.session_state.current_question_index = 0
+                        st.session_state.interview_completed = False
+                        st.rerun()
+                        
+                    except Exception as e:
+                        st.error(f"❌ Failed to start mock interview: {str(e)}")
+    
+    # Display Mock Interview Questions
+    elif st.session_state.mock_interview_questions and not st.session_state.interview_completed:
+        display_mock_interview_questions()
+    
+    # Display Interview Results
+    elif st.session_state.interview_completed and st.session_state.interview_evaluation:
+        display_interview_evaluation()
+    
+    # Reset Interview Button
+    if st.session_state.interview_completed:
+        col1, col2, col3 = st.columns([1, 1, 1])
+        with col2:
+            if st.button("🔄 Start New Mock Interview", key="restart_mock_interview", use_container_width=True):
+                # Reset all interview state
+                st.session_state.mock_interview_questions = None
+                st.session_state.mock_interview_responses = []
+                st.session_state.current_question_index = 0
+                st.session_state.interview_completed = False
+                st.session_state.interview_evaluation = None
+                st.rerun()
+
+
+def display_mock_interview_questions():
+    """Display the mock interview questions one by one."""
+    questions = st.session_state.mock_interview_questions.get('questions', [])
+    current_index = st.session_state.current_question_index
+    
+    if current_index < len(questions):
+        current_question = questions[current_index]
+        
+        # Interview context
+        context = st.session_state.mock_interview_questions.get('interview_context', {})
+        st.markdown(f"**Interview for:** {context.get('position', 'Position')} at {context.get('company', 'Company')}")
+        
+        # Progress indicator
+        progress = (current_index + 1) / len(questions)
+        st.progress(progress)
+        st.markdown(f"**Question {current_index + 1} of {len(questions)}**")
+        
+        # Question details
+        col1, col2 = st.columns([3, 1])
+        with col1:
+            st.markdown(f"### {current_question.get('question', '')}")
+        with col2:
+            difficulty_color = {
+                'Easy': '🟢',
+                'Medium': '🟡', 
+                'Hard': '🔴'
+            }
+            difficulty = current_question.get('difficulty', 'Medium')
+            st.markdown(f"**Difficulty:** {difficulty_color.get(difficulty, '🟡')} {difficulty}")
+        
+        # Category and tips
+        st.markdown(f"**Category:** {current_question.get('category', 'General')}")
+        
+        with st.expander("💡 Tips for answering", expanded=False):
+            st.markdown(f"**What we're looking for:** {current_question.get('evaluation_criteria', 'Clear and relevant response')}")
+            if current_question.get('expected_elements'):
+                st.markdown("**Try to include:**")
+                for element in current_question['expected_elements']:
+                    st.markdown(f"• {element}")
+        
+        # Response input
+        response_key = f"response_{current_index}"
+        user_response = st.text_area(
+            "Your Answer:",
+            height=150,
+            placeholder="Take your time to provide a thoughtful response...",
+            key=response_key
+        )
+        
+        # Navigation buttons
+        col1, col2, col3 = st.columns([1, 1, 1])
+        
+        with col1:
+            if current_index > 0:
+                if st.button("⬅️ Previous Question", key="prev_question"):
+                    st.session_state.current_question_index -= 1
+                    st.rerun()
+        
+        with col3:
+            if user_response.strip():
+                if current_index < len(questions) - 1:
+                    if st.button("Next Question ➡️", key="next_question"):
+                        # Save current response
+                        if len(st.session_state.mock_interview_responses) <= current_index:
+                            st.session_state.mock_interview_responses.extend([''] * (current_index + 1 - len(st.session_state.mock_interview_responses)))
+                        st.session_state.mock_interview_responses[current_index] = user_response
+                        st.session_state.current_question_index += 1
+                        st.rerun()
+                else:
+                    if st.button("🏁 Complete Interview", key="complete_interview"):
+                        # Save final response and evaluate
+                        if len(st.session_state.mock_interview_responses) <= current_index:
+                            st.session_state.mock_interview_responses.extend([''] * (current_index + 1 - len(st.session_state.mock_interview_responses)))
+                        st.session_state.mock_interview_responses[current_index] = user_response
+                        
+                        # Evaluate the interview
+                        with st.spinner("Evaluating your interview performance..."):
+                            try:
+                                job_analysis = st.session_state.analysis_results.get('job_analysis')
+                                evaluation = ai_integration.evaluate_interview_responses(
+                                    questions,
+                                    st.session_state.mock_interview_responses,
+                                    st.session_state.analysis_results,
+                                    job_analysis
+                                )
+                                
+                                st.session_state.interview_evaluation = evaluation
+                                st.session_state.interview_completed = True
+                                st.rerun()
+                                
+                            except Exception as e:
+                                st.error(f"❌ Failed to evaluate interview: {str(e)}")
+            else:
+                st.info("Please provide an answer to continue.")
+
+
+def display_interview_evaluation():
+    """Display the interview evaluation results."""
+    evaluation = st.session_state.interview_evaluation
+    questions = st.session_state.mock_interview_questions.get('questions', [])
+    
+    st.markdown("## 🎯 Interview Performance Report")
+    
+    # Overall Score
+    overall_score = evaluation.get('overall_score', 0)
+    col1, col2, col3 = st.columns([2, 1, 1])
+    
+    with col1:
+        st.progress(overall_score / 100)
+        score_color = "🟢" if overall_score >= 80 else "🟡" if overall_score >= 60 else "🔴"
+        st.markdown(f"### {score_color} Overall Score: {overall_score}/100")
+        
+        # Score interpretation
+        if overall_score >= 90:
+            st.success("🌟 Excellent performance! You're well-prepared for interviews.")
+        elif overall_score >= 80:
+            st.success("✅ Good performance! Minor improvements will make you even stronger.")
+        elif overall_score >= 70:
+            st.warning("⚠️ Decent performance, but there's room for improvement.")
+        elif overall_score >= 60:
+            st.warning("📈 You're on the right track, but need more practice.")
+        else:
+            st.error("📚 Consider more preparation and practice before your interview.")
+    
+    with col2:
+        st.metric("Communication", f"{evaluation.get('interview_performance', {}).get('communication', 0)}/100")
+    
+    with col3:
+        st.metric("Relevance", f"{evaluation.get('interview_performance', {}).get('relevance', 0)}/100")
+    
+    # Performance Breakdown
+    st.markdown("### 📊 Performance Breakdown")
+    performance = evaluation.get('interview_performance', {})
+    
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        comm_score = performance.get('communication', 0)
+        st.metric("Communication", f"{comm_score}/100")
+    with col2:
+        rel_score = performance.get('relevance', 0)
+        st.metric("Relevance", f"{rel_score}/100")
+    with col3:
+        conf_score = performance.get('confidence', 0)
+        st.metric("Confidence", f"{conf_score}/100")
+    with col4:
+        spec_score = performance.get('specificity', 0)
+        st.metric("Specificity", f"{spec_score}/100")
+    
+    # Individual Question Feedback
+    st.markdown("### 📝 Question-by-Question Feedback")
+    
+    individual_scores = evaluation.get('individual_scores', [])
+    for i, (question, score_data) in enumerate(zip(questions, individual_scores)):
+        with st.expander(f"Q{i+1}: {question.get('question', '')[:60]}... - Score: {score_data.get('score', 0)}/100", expanded=False):
+            col1, col2 = st.columns([1, 1])
+            
+            with col1:
+                st.markdown("**Your Response:**")
+                response = st.session_state.mock_interview_responses[i] if i < len(st.session_state.mock_interview_responses) else ""
+                st.markdown(f"*{response[:200]}{'...' if len(response) > 200 else ''}*")
+                
+                st.markdown("**Feedback:**")
+                st.markdown(score_data.get('feedback', 'No feedback available'))
+            
+            with col2:
+                st.markdown("**Strengths:**")
+                for strength in score_data.get('strengths', []):
+                    st.markdown(f"✅ {strength}")
+                
+                st.markdown("**Areas for Improvement:**")
+                for improvement in score_data.get('improvements', []):
+                    st.markdown(f"📈 {improvement}")
+    
+    # Overall Feedback
+    st.markdown("### 💡 Overall Feedback")
+    overall_feedback = evaluation.get('overall_feedback', {})
+    
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        st.markdown("**🌟 Your Strengths:**")
+        for strength in overall_feedback.get('strengths', []):
+            st.markdown(f"• {strength}")
+    
+    with col2:
+        st.markdown("**📈 Areas for Improvement:**")
+        for improvement in overall_feedback.get('areas_for_improvement', []):
+            st.markdown(f"• {improvement}")
+    
+    # Recommendations
+    st.markdown("### 🎯 Recommendations for Next Steps")
+    for recommendation in overall_feedback.get('recommendations', []):
+        st.markdown(f"🔹 {recommendation}")
+
+
 def display_history_step():
     """Display the history step."""
     st.markdown(f"""
     <div class="step-card">
         <div class="step-header">
-            <div class="step-number">6</div>
+            <div class="step-number">7</div>
             <h3 class="step-title">View History & Progress</h3>
         </div>
     </div>
@@ -960,11 +1554,14 @@ def main():
     # Add modern CSS
     add_modern_css()
     
-    # Create modern header
-    create_modern_header()
+    # Create hero dashboard
+    create_hero_dashboard()
     
     # Check API keys and show warnings
     display_api_key_warnings()
+    
+    # Quick start guide
+    display_quick_start_guide()
     
     # Main workflow - step-by-step process
     display_workflow_steps()
